@@ -9,7 +9,30 @@
 int gcd(const int a, const int b)
 {
 	// Replace this line with your code (have fun!).
-	return 0;
+	int gcf{ 0 };
+	int temp1 = a;
+	int temp2 = b;
+	while (temp1 % 2 == 0 && temp2 % 2 == 0) {
+		temp1 /= 2;
+		temp2 /= 2;
+		gcf += 1;
+	}
+	while (temp1 != b) {
+		if (temp1 % 2 == 0) {
+			temp1 /= 2;
+		} else if (temp2 % 2 == 0) {
+			temp2 /= 2;
+		}
+		else if (temp1 > temp2) {
+			temp1 = (temp1 - temp2) / 2;
+		}
+		else {
+			temp2 = (temp2 - temp1) / 2;
+		}
+
+	}
+	gcf = temp1;
+	return gcf;
 }
 
 // Fibonacci
@@ -18,6 +41,10 @@ int gcd(const int a, const int b)
 // RETURN: the nth positive integer in the Fibonacci sequence.
 long long fibonacci(const int n)
 {
-	// Replace this line with your code (challenge: do this with recursion!).
-	return 0;
+	if (n <= 1) {
+		return n;
+	}
+	else {
+		return (fibonacci(n - 1) + fibonacci(n - 2));
+	}
 }
